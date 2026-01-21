@@ -2,72 +2,74 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Painel | Trend Pro</title>
+    <title>Trend Pro | Login</title>
   </head>
 
   <body style="
     background:#020617;
     color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height:100vh;
     font-family:Arial;
-    padding:20px;
   ">
 
-    <h1>📊 Painel Trend Pro</h1>
-
-    <div id="menu" style="margin-top:30px;"></div>
-
-    <div id="paywall" style="
-      margin-top:50px;
+    <div style="
       background:#0B1220;
-      padding:20px;
+      padding:30px;
       border-radius:12px;
-      max-width:400px;
-      display:none;
+      width:320px;
+      text-align:center;
     ">
-      <h2>🔒 Acesso restrito</h2>
-      <p style="color:#94a3b8;">
-        Para liberar todas as abas do Trend Pro,
-        ative sua assinatura.
-      </p>
+
+      <h1 style="margin-bottom:25px;">Trend Pro</h1>
+
+      <input
+        type="email"
+        placeholder="Email"
+        style="
+          width:100%;
+          padding:12px;
+          margin-bottom:12px;
+          border:none;
+          border-radius:6px;
+        "
+      />
+
+      <input
+        type="password"
+        placeholder="Senha"
+        style="
+          width:100%;
+          padding:12px;
+          margin-bottom:20px;
+          border:none;
+          border-radius:6px;
+        "
+      />
 
       <button
-        onclick="window.location.href='assinatura.html'"
+        type="button"
+        onclick="window.location.href='https://agatawtrader.github.io/trendpro/painel.html'"
         style="
-          margin-top:20px;
-          padding:12px 20px;
+          width:100%;
+          padding:14px;
           background:#22d3ee;
           border:none;
+          border-radius:6px;
           font-weight:bold;
           cursor:pointer;
         "
       >
-        Ativar Assinatura
+        Entrar
       </button>
+
+      <p style="margin-top:20px; font-size:12px; color:#94a3b8;">
+        Acesso exclusivo para membros Trend Pro
+      </p>
+
     </div>
-
-    <script>
-      const assinante = localStorage.getItem('assinante');
-
-      const menu = document.getElementById('menu');
-      const paywall = document.getElementById('paywall');
-
-      if (assinante === 'true') {
-        menu.innerHTML = `
-          <button>📘 Instruções</button>
-          <button>🎥 Vídeos</button>
-          <button>📂 Arquivos</button>
-          <button>📈 Termômetro Final</button>
-        `;
-      } else {
-        menu.innerHTML = `
-          <button disabled style="opacity:0.4;">🔒 Instruções</button>
-          <button disabled style="opacity:0.4;">🔒 Vídeos</button>
-          <button disabled style="opacity:0.4;">🔒 Arquivos</button>
-          <button disabled style="opacity:0.4;">🔒 Termômetro Final</button>
-        `;
-        paywall.style.display = 'block';
-      }
-    </script>
 
   </body>
 </html>
