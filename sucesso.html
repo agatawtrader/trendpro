@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pagamento Confirmado | Trend Pro</title>
+  </head>
+
+  <body style="
+    background:#020617;
+    color:white;
+    font-family:Arial;
+    padding:20px;
+    text-align:center;
+  ">
+
+    <h1>✅ Pagamento confirmado</h1>
+
+    <p style="margin-top:20px; color:#94a3b8;">
+      Sua assinatura Trend Pro foi ativada com sucesso.
+    </p>
+
+    <button
+      id="btnContinuar"
+      style="
+        margin-top:30px;
+        padding:14px 24px;
+        background:#22d3ee;
+        border:none;
+        font-weight:bold;
+        cursor:pointer;
+      "
+    >
+      Acessar Painel
+    </button>
+
+    <script>
+      document.getElementById('btnContinuar').onclick = function () {
+        localStorage.setItem('assinante', 'true');
+        window.location.href = 'painel.html';
+      };
+    </script>
+
+  </body>
+</html>
