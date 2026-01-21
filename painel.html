@@ -14,43 +14,16 @@
 
     <h1>📊 Painel Trend Pro</h1>
 
-    <!-- MENU -->
-    <div style="margin-top:30px;">
+    <div id="menu" style="margin-top:30px;"></div>
 
-      <button disabled style="
-        margin-right:10px;
-        opacity:0.4;
-        cursor:not-allowed;
-      ">🔒 Instruções</button>
-
-      <button disabled style="
-        margin-right:10px;
-        opacity:0.4;
-        cursor:not-allowed;
-      ">🔒 Vídeos</button>
-
-      <button disabled style="
-        margin-right:10px;
-        opacity:0.4;
-        cursor:not-allowed;
-      ">🔒 Arquivos</button>
-
-      <button disabled style="
-        opacity:0.4;
-        cursor:not-allowed;
-      ">🔒 Termômetro Final</button>
-
-    </div>
-
-    <!-- BLOQUEIO -->
-    <div style="
+    <div id="paywall" style="
       margin-top:50px;
       background:#0B1220;
       padding:20px;
       border-radius:12px;
       max-width:400px;
+      display:none;
     ">
-
       <h2>🔒 Acesso restrito</h2>
 
       <p style="color:#94a3b8;">
@@ -59,20 +32,43 @@
       </p>
 
       <button
-  onclick="window.location.href='assinatura.html'"
-  style="
-    margin-top:20px;
-    padding:12px 20px;
-    background:#22d3ee;
-    border:none;
-    font-weight:bold;
-    cursor:pointer;
-  "
->
-  Ativar Assinatura
-</button>
-
+        onclick="window.location.href='assinatura.html'"
+        style="
+          margin-top:20px;
+          padding:12px 20px;
+          background:#22d3ee;
+          border:none;
+          font-weight:bold;
+          cursor:pointer;
+        "
+      >
+        Ativar Assinatura
+      </button>
     </div>
+
+    <script>
+      const assinante = localStorage.getItem('assinante');
+
+      const menu = document.getElementById('menu');
+      const paywall = document.getElementById('paywall');
+
+      if (assinante === 'true') {
+        menu.innerHTML = `
+          <button>📘 Instruções</button>
+          <button>🎥 Vídeos</button>
+          <button>📂 Arquivos</button>
+          <button>📈 Termômetro Final</button>
+        `;
+      } else {
+        menu.innerHTML = `
+          <button disabled style="opacity:0.4;">🔒 Instruções</button>
+          <button disabled style="opacity:0.4;">🔒 Vídeos</button>
+          <button disabled style="opacity:0.4;">🔒 Arquivos</button>
+          <button disabled style="opacity:0.4;">🔒 Termômetro Final</button>
+        `;
+        paywall.style.display = 'block';
+      }
+    </script>
 
   </body>
 </html>
