@@ -47,36 +47,37 @@
     </div>
 
     <script>
-      // 🔐 PROTEÇÃO DE ACESSO
+      // 🔐 PROTEÇÃO REAL
       const assinante = localStorage.getItem('assinante');
 
-      if (!assinante) {
+      // 🚫 SE NÃO FOR "true", NÃO ENTRA
+      if (assinante !== 'true') {
         window.location.href = 'index.html';
       }
 
       const menu = document.getElementById('menu');
       const paywall = document.getElementById('paywall');
 
-      if (assinante === 'true') {
-        menu.innerHTML = `
-          <button>📘 Instruções</button>
-          <button>🎥 Vídeos</button>
-          <button>📂 Arquivos</button>
-          <button>📈 Termômetro Final</button>
-          <br><br>
-          <button onclick="logout()" style="background:#ef4444;color:white;border:none;padding:10px;">
-            Sair
-          </button>
-        `;
-      } else {
-        menu.innerHTML = `
-          <button disabled style="opacity:0.4;">🔒 Instruções</button>
-          <button disabled style="opacity:0.4;">🔒 Vídeos</button>
-          <button disabled style="opacity:0.4;">🔒 Arquivos</button>
-          <button disabled style="opacity:0.4;">🔒 Termômetro Final</button>
-        `;
-        paywall.style.display = 'block';
-      }
+      // ✅ ASSINANTE REAL
+      menu.innerHTML = `
+        <button>📘 Instruções</button>
+        <button>🎥 Vídeos</button>
+        <button>📂 Arquivos</button>
+        <button>📈 Termômetro Final</button>
+        <br><br>
+        <button
+          onclick="logout()"
+          style="
+            background:#ef4444;
+            color:white;
+            border:none;
+            padding:10px;
+            cursor:pointer;
+          "
+        >
+          Sair
+        </button>
+      `;
 
       function logout() {
         localStorage.removeItem('assinante');
