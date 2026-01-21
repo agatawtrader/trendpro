@@ -8,7 +8,7 @@ export async function POST() {
       {
         title: 'Trend Pro – Plano Anual',
         quantity: 1,
-        unit_price: 997, // ajuste o valor se quiser
+        unit_price: 997,
       },
     ],
     back_urls: {
