@@ -19,27 +19,29 @@
       background:#0B1220;
       padding:25px;
       border-radius:12px;
-      max-width:400px;
+      max-width:420px;
     ">
 
       <h2>Plano Premium</h2>
 
       <p style="color:#94a3b8;">
-        Acesso completo ao Indicador Trend Pro,
-        estratégias, materiais e atualizações.
+        Acesso completo ao Indicador <strong>Trend Pro</strong>,
+        estratégias, materiais exclusivos e atualizações contínuas.
       </p>
 
       <h3 style="margin-top:20px;">R$ 97,00 / mês</h3>
 
-      <!-- BOTÃO CORRIGIDO -->
+      <!-- BOTÃO COM REDIRECIONAMENTO CORRETO -->
       <button
-        id="btnAssinar"
+        type="button"
+        onclick="window.location.href='pagamento.html'"
         style="
-          margin-top:20px;
+          margin-top:25px;
           width:100%;
           padding:14px;
           background:#22d3ee;
           border:none;
+          border-radius:6px;
           font-weight:bold;
           cursor:pointer;
         "
@@ -50,16 +52,10 @@
     </div>
 
     <p style="margin-top:30px;">
-      <a href="painel.html" style="color:#22d3ee;">⬅ Voltar ao painel</a>
+      <a href="painel.html" style="color:#22d3ee; text-decoration:none;">
+        ⬅ Voltar ao painel
+      </a>
     </p>
-
-    <!-- SCRIPT SEPARADO (IMPORTANTE) -->
-    <script>
-      document.getElementById('btnAssinar').onclick = function () {
-        localStorage.setItem('assinante', 'true');
-        window.location.href = 'painel.html';
-      };
-    </script>
 
   </body>
 </html>
