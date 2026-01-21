@@ -47,39 +47,47 @@
     </div>
 
     <script>
-      // 🔐 PROTEÇÃO REAL
+      const logado = localStorage.getItem('logado');
       const assinante = localStorage.getItem('assinante');
 
-      // 🚫 SE NÃO FOR "true", NÃO ENTRA
-      if (assinante !== 'true') {
+      // 🚫 NÃO LOGADO → VOLTA PARA LOGIN
+      if (logado !== 'true') {
         window.location.href = 'index.html';
       }
 
       const menu = document.getElementById('menu');
       const paywall = document.getElementById('paywall');
 
-      // ✅ ASSINANTE REAL
-      menu.innerHTML = `
-        <button>📘 Instruções</button>
-        <button>🎥 Vídeos</button>
-        <button>📂 Arquivos</button>
-        <button>📈 Termômetro Final</button>
-        <br><br>
-        <button
-          onclick="logout()"
-          style="
-            background:#ef4444;
-            color:white;
-            border:none;
-            padding:10px;
-            cursor:pointer;
-          "
-        >
-          Sair
-        </button>
-      `;
+      // 🔓 ASSINANTE
+      if (assinante === 'true') {
+        menu.innerHTML = `
+          <button>📘 Instruções</button>
+          <button>🎥 Vídeos</button>
+          <button>📂 Arquivos</button>
+          <button>📈 Termômetro Final</button>
+          <br><br>
+          <button onclick="logout()" style="background:#ef4444;color:white;border:none;padding:10px;">
+            Sair
+          </button>
+        `;
+      } 
+      // 🔒 NÃO ASSINANTE (MAS LOGADO)
+      else {
+        menu.innerHTML = `
+          <button disabled style="opacity:0.4;">🔒 Instruções</button>
+          <button disabled style="opacity:0.4;">🔒 Vídeos</button>
+          <button disabled style="opacity:0.4;">🔒 Arquivos</button>
+          <button disabled style="opacity:0.4;">🔒 Termômetro Final</button>
+          <br><br>
+          <button onclick="logout()" style="background:#ef4444;color:white;border:none;padding:10px;">
+            Sair
+          </button>
+        `;
+        paywall.style.display = 'block';
+      }
 
       function logout() {
+        localStorage.removeItem('logado');
         localStorage.removeItem('assinante');
         window.location.href = 'index.html';
       }
