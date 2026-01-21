@@ -31,17 +31,23 @@
 
       <h3 style="margin-top:20px;">R$ 97,00 / mês</h3>
 
-      <button style="
-        margin-top:20px;
-        width:100%;
-        padding:14px;
-        background:#22d3ee;
-        border:none;
-        font-weight:bold;
-        cursor:pointer;
-      ">
-        Assinar agora
-      </button>
+      <button
+  onclick="
+    localStorage.setItem('assinante', 'true');
+    window.location.href='painel.html';
+  "
+  style="
+    margin-top:20px;
+    width:100%;
+    padding:14px;
+    background:#22d3ee;
+    border:none;
+    font-weight:bold;
+    cursor:pointer;
+  "
+>
+  Assinar agora
+</button>
 
     </div>
 
