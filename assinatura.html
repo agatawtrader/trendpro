@@ -31,29 +31,35 @@
 
       <h3 style="margin-top:20px;">R$ 97,00 / mês</h3>
 
+      <!-- BOTÃO CORRIGIDO -->
       <button
-  onclick="
-    localStorage.setItem('assinante', 'true');
-    window.location.href='painel.html';
-  "
-  style="
-    margin-top:20px;
-    width:100%;
-    padding:14px;
-    background:#22d3ee;
-    border:none;
-    font-weight:bold;
-    cursor:pointer;
-  "
->
-  Assinar agora
-</button>
+        id="btnAssinar"
+        style="
+          margin-top:20px;
+          width:100%;
+          padding:14px;
+          background:#22d3ee;
+          border:none;
+          font-weight:bold;
+          cursor:pointer;
+        "
+      >
+        Assinar agora
+      </button>
 
     </div>
 
     <p style="margin-top:30px;">
       <a href="painel.html" style="color:#22d3ee;">⬅ Voltar ao painel</a>
     </p>
+
+    <!-- SCRIPT SEPARADO (IMPORTANTE) -->
+    <script>
+      document.getElementById('btnAssinar').onclick = function () {
+        localStorage.setItem('assinante', 'true');
+        window.location.href = 'painel.html';
+      };
+    </script>
 
   </body>
 </html>
